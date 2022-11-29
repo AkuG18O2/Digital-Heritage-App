@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DIGITAL HERITAGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="topnav">
+        <!-- <img src="AFR_Logo.png" alt="logo" class="nav-logo" /> -->
+    </div>
+    <div class="main">
+        <div class="heading">
+            <p>DIGITAL HERITAGE</p>
+        </div>
+        <div class="section">
+            <button id="play-button" onclick=buttonPress()>OFF</button>
+        </div>
+        <div class="section">
+            <button onclick="reached('AMUL')">AMUL</button>
+            <button onclick="reached('Wind Tunnel')">Wind Tunnel</button>
+        </div>
+        <div class="section card invisible" id="card-1">
+            AMUL
+        </div>
+        <div class="section card invisible" id="card-2">
+            Wind Tunnel
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
