@@ -8,6 +8,9 @@ from rest_framework import permissions
 from .models import Location, CurrentLocation
 from .serializers import LocationSerializer, CurrentLocationSerializer
 
+from collections import OrderedDict
+import json
+
 def index(request):
     current = CurrentLocation.objects.all()[0]
     x = current.x
@@ -25,9 +28,12 @@ def index(request):
 
 def locations_list(request):
     if request.method == 'GET':
+        current = CurrentLocation.objects.all()[0]
         locations = Location.objects.all()
         serializer = LocationSerializer(locations, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        response = [{"x": current.x, "y": current.y, "yaw": current.yaw}] + json.loads(json.dumps(serializer.data))
+        # print(response)
+        return JsonResponse(response, safe=False)
 
     elif request.method == 'POST':
         data = JSONParser().parse(request)

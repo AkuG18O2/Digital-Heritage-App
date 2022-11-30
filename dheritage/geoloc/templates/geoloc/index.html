@@ -20,24 +20,15 @@
             <button id="play-button" onclick=buttonPress()>OFF</button>
         </div>
 
-        {% if locations_reached %}
-            {% for location in locations_reached %}
-                <div class="card" id="{{ location.location_name }}">
-                    <h3>{{ location.location_name }}</h3>
-                    {{ location.description }}
-                </div>    
-            {% endfor %}
-        {% endif %}
+        <div class="cards"></div>
+        <div class="nearby invisible">
+            <div class="nearby-sub">Nearby locations : </div>
+            <div class="nearby-list"></div>
+        </div>
 
-        Nearby locations :
-        {% if locations_nearby %}
-            {% for location in locations_nearby %}
-                <div> {{ location.location_name }} </div>    
-            {% endfor %}
-        {% else %}
-            <p>No locations are marked.</p>
-        {% endif %}
-
+        <div class="section">
+            <button id="geo-button" class="invisible" onclick=mark()>MARK LOCATION</button>
+        </div>
     </div>
     <script src="{% static 'script.js' %}"></script>
 </body>
