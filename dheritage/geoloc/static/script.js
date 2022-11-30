@@ -38,7 +38,7 @@ function buttonPress() {
 function mark()
 {
     const xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", 'http://127.0.0.1:8000/locations/', false); // false for synchronous request
+    xmlHttp.open("GET", 'http://192.168.98.177:8080/locations/', false); // false for synchronous request
     xmlHttp.send(null);
     // console.log(xmlHttp.responseText);
     const obj = JSON.parse(xmlHttp.responseText);
@@ -55,7 +55,7 @@ function mark()
     };
 
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://127.0.0.1:8000/locations/");
+    xhr.open("POST", "http://192.168.98.177:8080/locations/");
     //xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     
@@ -72,7 +72,7 @@ function update()
     if (appState == "OFF")
         return;
     const xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", 'http://127.0.0.1:8000/locations/', false); // false for synchronous request
+    xmlHttp.open("GET", 'http://192.168.98.177:8080/locations/', false); // false for synchronous request
     xmlHttp.send(null);
     // console.log(xmlHttp.responseText);
     const obj = JSON.parse(xmlHttp.responseText);

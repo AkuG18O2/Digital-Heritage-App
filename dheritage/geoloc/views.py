@@ -46,6 +46,7 @@ def locations_list(request):
             return JsonResponse(serializer.data, status=201)
         return JsonResponse(serializer.errors, status=400)
 
+@csrf_exempt 
 def update_current_location(request):
     if request.method == 'GET':
         return HttpResponse(status=400)
