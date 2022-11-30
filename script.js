@@ -53,3 +53,15 @@ function reached(location) {
             card2.classList.remove('invisible');
     }
 }
+
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
+const interval = setInterval(() => {
+    httpGet('http://127.0.0.1:8000');
+   }, 1000);
