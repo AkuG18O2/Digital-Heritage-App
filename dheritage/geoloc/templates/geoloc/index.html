@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DIGITAL HERITAGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="topnav">
+        <!-- <img src="AFR_Logo.png" alt="logo" class="nav-logo" /> -->
+    </div>
+    <div class="main">
+        <div class="heading">
+            <p>DIGITAL HERITAGE</p>
+        </div>
+        <div class="section">
+            <button id="play-button" onclick=buttonPress()>OFF</button>
+        </div>
+
+        {% if locations_reached %}
+            {% for location in locations_reached %}
+                <div class="card" id="{{ location.location_name }}">
+                    <h3>{{ location.location_name }}</h3>
+                    {{ location.description }}
+                </div>    
+            {% endfor %}
+        {% endif %}
+
+        Nearby locations :
+        {% if locations_nearby %}
+            {% for location in locations_nearby %}
+                <div> {{ location.location_name }} </div>    
+            {% endfor %}
+        {% else %}
+            <p>No locations are marked.</p>
+        {% endif %}
+
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
