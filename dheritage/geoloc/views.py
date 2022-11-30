@@ -11,6 +11,8 @@ from .serializers import LocationSerializer, CurrentLocationSerializer
 from collections import OrderedDict
 import json
 
+from django.views.decorators.csrf import csrf_exempt
+
 def index(request):
     current = CurrentLocation.objects.all()[0]
     x = current.x
@@ -26,6 +28,7 @@ def index(request):
     }
     return HttpResponse(template.render(context, request))
 
+@csrf_exempt 
 def locations_list(request):
     if request.method == 'GET':
         current = CurrentLocation.objects.all()[0]

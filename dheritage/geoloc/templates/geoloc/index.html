@@ -26,9 +26,10 @@
             <div class="nearby-list"></div>
         </div>
 
-        <div class="section">
-            <button id="geo-button" class="invisible" onclick=mark()>MARK LOCATION</button>
-        </div>
+        <form class="section mark invisible">
+            <input type="text" id="name" name="name" placeholder="Name">
+            <input type="button" id="geo-button" value="MARK LOCATION" onclick=mark()>
+        </form>
     </div>
     <script src="{% static 'script.js' %}"></script>
 </body>

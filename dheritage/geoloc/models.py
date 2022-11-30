@@ -3,7 +3,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Location(models.Model):
     location_name = models.CharField(max_length=50)
-    description = models.CharField(max_length=200)
+    description = models.CharField(max_length=200, blank=True)
     voice_message = models.CharField(default='You have reached ', max_length=200)
     x = models.FloatField(default=0.0)
     y = models.FloatField(default=0.0)
